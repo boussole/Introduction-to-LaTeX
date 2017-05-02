@@ -1,0 +1,27 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[T2A]{fontenc}                       % кодировка
+\usepackage[utf8]{inputenc}                     % кодировка исходного текста
+\usepackage[english,russian]{babel}             % локализация и переносы
+
+% пункты второго уровня в окружении 'enumerate' теперь русские строчные буквы
+% внимание на количество букв 'i' в конце 'labelenum' и 'enum'
+\renewcommand{\labelenumii}{\asbuk{enumii}}
+
+\begin{document}
+
+\begin{enumerate}
+	\item {item \#1}
+	\begin{enumerate}
+		\item {sub item \#1.1}
+		\item {sub item \#1.2}
+	\end{enumerate}
+
+	\item {item \#2}
+	\begin{enumerate}
+		\item {sub item \#2.1}
+		\item {sub item \#2.2}
+	\end{enumerate}
+\end{enumerate}
+
+\end{document} % Конец текста.
