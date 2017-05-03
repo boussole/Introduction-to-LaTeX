@@ -1,0 +1,25 @@
+\documentclass[a4paper,12pt]{article}
+
+% Работа с русским языком
+\usepackage{cmap}                                       % поиск в PDF
+
+% Шрифты
+\usepackage{euscript}    % Шрифт Евклид
+
+% Работа с картинками
+\usepackage{graphicx}  % Для вставки рисунков
+
+% Список в несколько колонок
+\usepackage{multicol}
+
+\begin{document}
+\begin{multicols}{2}
+\begin{enumerate}
+	\item \includegraphics{3_image.pdf}
+	\item \includegraphics[scale=2.5]{3_image.pdf}
+	\item \includegraphics[height=3in,keepaspectratio]{3_image.pdf}
+	\item \includegraphics[height=30mm,width=26mm]{3_image.pdf}
+	\item \includegraphics[height=0.2\textheight]{3_image.pdf}
+\end{enumerate}
+\end{multicols}
+\end{document}
