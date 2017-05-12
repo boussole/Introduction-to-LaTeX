@@ -1,0 +1,50 @@
+\documentclass[a4paper,12pt]{article}
+
+%%% Работа с русским языком
+\usepackage{cmap}					% поиск в PDF
+\usepackage{mathtext} 				% русские буквы в формулах
+\usepackage[T2A]{fontenc}			% кодировка
+\usepackage[utf8]{inputenc}			% кодировка исходного текста
+\usepackage[english,russian]{babel}	% локализация и переносы
+
+%%% Дополнительная работа с математикой
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} % AMS
+\usepackage{icomma} % "Умная" запятая: $0,2$ --- число, $0, 2$ --- перечисление
+
+%\usepackage{tikz, pgfplots}
+%\usetikzlibrary{arrows}
+
+\usepackage{tikz} % Работа с графикой
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepgfplotslibrary{dateplot}
+
+\begin{document}
+
+\begin{center}
+
+\begin{tikzpicture}
+\begin{axis}[ %
+	title={Динамика цен на нефть, USD/баррель},
+	% горизонталь х - даты в российском формате повернуты на 90 градусов
+	date coordinates in=x, %
+	xticklabel style={rotate=90}, %
+	xticklabel={\day.\month.\year}, %
+	xmin=2015-10-01, %
+	xmax=2015-12-31, %
+	xtick={2015-10-01,2015-10-15,2015-11-01,2015-11-15,2015-12-01,2015-12-15,2015-12-31}, %
+	line width=0.5mm
+]
+% строим из одного файла два разных графика
+\addplot[blue] table[x=date,y=brent,col sep=comma]{5.csv};
+\addplot[red] table[x=date,y=wti,col sep=comma]{5.csv};
+
+\legend{Нефть Brent, Нефть WTI}
+
+\end{axis}
+
+\end{tikzpicture}
+
+\end{center}
+
+\end{document}
